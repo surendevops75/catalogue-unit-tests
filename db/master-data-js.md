@@ -20,6 +20,7 @@ This type of script is commonly used during:
 
 # Complete Script
 
+```javascript
 //
 // Products
 //
@@ -49,6 +50,7 @@ db.products.createIndex(
     { sku: 1 },
     { unique: true }
 );
+```
 
 ---
 

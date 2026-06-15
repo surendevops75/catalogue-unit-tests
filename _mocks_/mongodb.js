@@ -1,4 +1,3 @@
-```javascript
 module.exports = {
 
   MongoClient: {
@@ -64,6 +63,3 @@ module.exports = {
 
   ObjectId: jest.fn()
 };
-```
-
---

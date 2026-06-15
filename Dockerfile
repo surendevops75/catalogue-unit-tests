@@ -1,6 +1,5 @@
 # Complete Dockerfile
 
-```dockerfile
 # --------------------------------------------------
 # BUILD STAGE
 # --------------------------------------------------
@@ -49,6 +48,3 @@ USER roboshop
 CMD ["server.js"]
 
 ENTRYPOINT ["node"]
-```
-
----

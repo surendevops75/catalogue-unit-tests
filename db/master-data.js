@@ -1,6 +1,3 @@
-# Complete Scri
-
-```javascript
 //
 // Products
 //
@@ -30,4 +27,3 @@ db.products.createIndex(
     { sku: 1 },
     { unique: true }
 );
-```

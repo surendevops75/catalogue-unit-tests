@@ -1,4 +1,3 @@
-````markdown id="mongodb-catalogue-seed-01"
 # MongoDB Catalogue Database Seed Script
 
 This MongoDB script initializes the `catalogue` database with sample product data and creates indexes used by the application.

@@ -1,4 +1,3 @@
-````markdown
 # Jenkins Declarative Pipeline for Node.js CI with SonarQube
 
 This Jenkins Pipeline automates the Continuous Integration (CI) process for a Node.js application.

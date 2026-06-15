@@ -1,4 +1,3 @@
-````markdown id="jest-mongodb-mock-01"
 # Jest MongoDB Mock Module
 
 This file is a mock implementation of the MongoDB driver used during unit testing.

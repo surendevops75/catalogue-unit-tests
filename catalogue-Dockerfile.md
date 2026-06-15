@@ -1,4 +1,3 @@
-````markdown id="dockerfile-nodejs-catalogue-01"
 # Multi-Stage Dockerfile for Node.js Catalogue Application
 
 This Dockerfile builds and runs the Roboshop Catalogue service using a multi-stage build approach.

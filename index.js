@@ -1,4 +1,3 @@
-````markdown id="nodejs-server-startup-01"
 # Node.js Application Startup Script
 
 This file is the application entry point responsible for starting the Catalogue service.

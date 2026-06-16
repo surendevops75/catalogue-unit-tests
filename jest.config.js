@@ -1,6 +1,3 @@
-# Complete Configuration
-
-```javascript
 module.exports = {
 
   // Test execution environment
@@ -17,6 +14,3 @@ module.exports = {
     'server.js'
   ]
 };
-```
-
----

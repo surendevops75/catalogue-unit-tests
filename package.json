@@ -1,0 +1,784 @@
+````markdown id="packagejson-catalogue-01"
+# Node.js Package Configuration (package.json)
+
+This file is the package manifest for the Roboshop Catalogue service.
+
+It contains:
+
+- Project Metadata
+- Application Version
+- NPM Scripts
+- Runtime Dependencies
+- Development Dependencies
+
+Node.js and NPM use this file to install packages, execute scripts, and manage application versions.
+
+---
+
+# Complete package.json
+
+```json
+{
+  "name": "catalogue",
+  "version": "1.1.0",
+  "description": "product catalogue REST API",
+  "main": "server.js",
+
+  "scripts": {
+
+    "test": "jest --coverage --forceExit",
+
+    "coverage": "jest --coverage --coverageReporters=lcov --forceExit"
+  },
+
+  "author": "SteveW",
+
+  "license": "Apache-2.0",
+
+  "dependencies": {
+
+    "body-parser": "^1.18.1",
+
+    "express": "^4.15.4",
+
+    "mongodb": "^4.7.0",
+
+    "pino": "^5.10.8",
+
+    "express-pino-logger": "^4.0.0",
+
+    "pino-pretty": "^2.5.0",
+
+    "@instana/collector": "^1.132.2",
+
+    "redis": "^3.1.1",
+
+    "request": "^2.88.2",
+
+    "prom-client": "^11.5.3"
+  },
+
+  "devDependencies": {
+
+    "jest": "^29.0.0",
+
+    "supertest": "^6.3.0"
+  }
+}
+```
+
+---
+
+# What is package.json?
+
+`package.json` is the central configuration file of a Node.js application.
+
+Purpose:
+
+```text
+Project Metadata
+Dependency Management
+Version Control
+Build Configuration
+Test Execution
+```
+
+Without this file:
+
+```bash
+npm install
+npm test
+npm run
+```
+
+cannot work correctly.
+
+---
+
+# Architecture Overview
+
+```text
+package.json
+      │
+      ▼
+npm install
+      │
+      ▼
+Dependencies
+      │
+      ▼
+Node.js Application
+```
+
+---
+
+# Application Name
+
+```json
+"name": "catalogue"
+```
+
+Defines the application name.
+
+Application:
+
+```text
+Catalogue Service
+```
+
+Responsible for:
+
+```text
+Product Listings
+Category Retrieval
+Product Search
+Product Information
+```
+
+within the Roboshop platform.
+
+---
+
+# Application Version
+
+```json
+"version": "1.1.0"
+```
+
+Uses Semantic Versioning.
+
+Format:
+
+```text
+MAJOR.MINOR.PATCH
+```
+
+Current Version:
+
+```text
+1.1.0
+```
+
+Meaning:
+
+```text
+Major Version : 1
+Minor Version : 1
+Patch Version : 0
+```
+
+---
+
+# Description
+
+```json
+"description": "product catalogue REST API"
+```
+
+Provides a short explanation of the application.
+
+Purpose:
+
+```text
+Documentation
+Package Metadata
+Repository Browsing
+```
+
+---
+
+# Main Entry Point
+
+```json
+"main": "server.js"
+```
+
+Defines the application startup file.
+
+Execution Flow:
+
+```text
+Node.js
+   │
+   ▼
+server.js
+   │
+   ▼
+Express Application
+```
+
+---
+
+# Scripts Section
+
+```json
+"scripts"
+```
+
+Contains executable NPM commands.
+
+Usage:
+
+```bash
+npm run <script-name>
+```
+
+---
+
+# Test Script
+
+```json
+"test": "jest --coverage --forceExit"
+```
+
+Runs automated tests.
+
+Command:
+
+```bash
+npm test
+```
+
+Equivalent:
+
+```bash
+jest --coverage --forceExit
+```
+
+---
+
+# What Happens?
+
+```text
+Run Tests
+      │
+      ▼
+Measure Coverage
+      │
+      ▼
+Generate Reports
+```
+
+---
+
+# forceExit
+
+```text
+--forceExit
+```
+
+Forces Jest to terminate after tests complete.
+
+Useful when:
+
+```text
+Database Connections Remain Open
+Timers Continue Running
+Background Processes Exist
+```
+
+---
+
+# Coverage Script
+
+```json
+"coverage": "jest --coverage --coverageReporters=lcov --forceExit"
+```
+
+Generates coverage reports.
+
+Command:
+
+```bash
+npm run coverage
+```
+
+Produces:
+
+```text
+coverage/lcov.info
+```
+
+---
+
+# Why LCOV?
+
+LCOV is commonly consumed by:
+
+- :contentReference[oaicite:0]{index=0}
+
+for coverage analysis.
+
+---
+
+# Author
+
+```json
+"author": "SteveW"
+```
+
+Indicates project owner or maintainer.
+
+---
+
+# License
+
+```json
+"license": "Apache-2.0"
+```
+
+Open-source software license.
+
+Allows:
+
+```text
+Commercial Use
+Modification
+Distribution
+Private Use
+```
+
+---
+
+# Runtime Dependencies
+
+```json
+"dependencies"
+```
+
+Packages required while the application is running.
+
+Installed using:
+
+```bash
+npm install
+```
+
+---
+
+# body-parser
+
+```json
+"body-parser": "^1.18.1"
+```
+
+Parses incoming request bodies.
+
+Example:
+
+```json
+{
+  "name": "laptop"
+}
+```
+
+Allows Express to access:
+
+```javascript
+req.body
+```
+
+---
+
+# Express
+
+```json
+"express": "^4.15.4"
+```
+
+Web application framework.
+
+Provides:
+
+```text
+REST APIs
+Routing
+Middleware
+HTTP Server
+```
+
+Example:
+
+```javascript
+app.get('/products')
+```
+
+---
+
+# MongoDB Driver
+
+```json
+"mongodb": "^4.7.0"
+```
+
+Allows application to connect to MongoDB.
+
+Example:
+
+```javascript
+MongoClient.connect()
+```
+
+Used for:
+
+```text
+Product Storage
+Search
+Catalog Data
+```
+
+---
+
+# Pino
+
+```json
+"pino": "^5.10.8"
+```
+
+High-performance logging library.
+
+Benefits:
+
+```text
+Structured Logging
+JSON Logs
+Fast Performance
+```
+
+---
+
+# Express Pino Logger
+
+```json
+"express-pino-logger"
+```
+
+Integrates:
+
+```text
+Express
++
+Pino
+```
+
+Automatically logs:
+
+```text
+Requests
+Responses
+Errors
+```
+
+---
+
+# Pino Pretty
+
+```json
+"pino-pretty"
+```
+
+Formats JSON logs into human-readable output.
+
+Example:
+
+Before:
+
+```json
+{"level":30,"msg":"Started"}
+```
+
+After:
+
+```text
+INFO Started
+```
+
+---
+
+# Instana Collector
+
+```json
+"@instana/collector"
+```
+
+Application Performance Monitoring (APM) agent.
+
+Provides:
+
+```text
+Tracing
+Performance Metrics
+Monitoring
+Observability
+```
+
+---
+
+# Redis
+
+```json
+"redis": "^3.1.1"
+```
+
+Redis client library.
+
+Used for:
+
+```text
+Caching
+Session Storage
+Performance Optimization
+```
+
+---
+
+# Request
+
+```json
+"request": "^2.88.2"
+```
+
+HTTP client library.
+
+Used to call:
+
+```text
+External APIs
+Internal Microservices
+```
+
+Example:
+
+```javascript
+request.get(...)
+```
+
+---
+
+# Prometheus Client
+
+```json
+"prom-client": "^11.5.3"
+```
+
+Exports metrics for:
+
+- :contentReference[oaicite:1]{index=1}
+
+Example Metrics:
+
+```text
+Request Count
+Response Time
+Error Rate
+```
+
+---
+
+# Development Dependencies
+
+```json
+"devDependencies"
+```
+
+Packages required only during development and testing.
+
+Not needed in production runtime.
+
+---
+
+# Jest
+
+```json
+"jest": "^29.0.0"
+```
+
+Testing framework.
+
+Provides:
+
+```text
+Unit Testing
+Assertions
+Mocking
+Coverage Reports
+```
+
+Command:
+
+```bash
+npm test
+```
+
+---
+
+# Supertest
+
+```json
+"supertest": "^6.3.0"
+```
+
+Used for API testing.
+
+Example:
+
+```javascript
+request(app)
+  .get('/products')
+```
+
+Tests:
+
+```text
+REST APIs
+HTTP Responses
+Status Codes
+```
+
+---
+
+# Dependency Installation Flow
+
+```text
+package.json
+      │
+      ▼
+npm install
+      │
+      ▼
+node_modules
+      │
+      ▼
+Application Ready
+```
+
+---
+
+# CI/CD Integration
+
+Pipeline:
+
+```text
+Checkout Code
+      │
+      ▼
+npm install
+      │
+      ▼
+npm test
+      │
+      ▼
+Coverage Report
+      │
+      ▼
+SonarQube
+```
+
+---
+
+# Testing Flow
+
+```text
+Jest
+    │
+    ▼
+Unit Tests
+    │
+    ▼
+Coverage
+    │
+    ▼
+LCOV Report
+    │
+    ▼
+SonarQube
+```
+
+---
+
+# Real DevOps Use Cases
+
+## Continuous Integration
+
+Automated testing in:
+
+- :contentReference[oaicite:2]{index=2}
+
+- :contentReference[oaicite:3]{index=3}
+
+---
+
+## Monitoring
+
+Application metrics exported to:
+
+- :contentReference[oaicite:4]{index=4}
+
+---
+
+## Observability
+
+Application tracing using:
+
+- :contentReference[oaicite:5]{index=5}
+
+---
+
+## Logging
+
+Structured logs shipped to:
+
+- :contentReference[oaicite:6]{index=6}
+
+through logging pipelines.
+
+---
+
+# Best Practices
+
+✅ Use Semantic Versioning
+
+✅ Separate runtime and development dependencies
+
+✅ Generate coverage reports
+
+✅ Integrate with SonarQube
+
+✅ Use structured logging
+
+✅ Monitor applications with Prometheus
+
+---
+
+# Benefits
+
+- Dependency Management
+- Automated Testing
+- Coverage Reporting
+- Observability
+- Monitoring
+- Production Readiness
+
+---
+
+# Why package.json Is Important
+
+This file defines everything required to build, test, and run the Catalogue service.
+
+It manages:
+
+- Application Metadata
+- Dependency Installation
+- Test Execution
+- Coverage Reporting
+- Monitoring Libraries
+- Logging Frameworks
+
+Understanding package.json is essential for:
+
+- Node.js Developers
+- DevOps Engineers
+- Platform Engineers
+- CI/CD Pipeline Development
+- Cloud-Native Applications
+````

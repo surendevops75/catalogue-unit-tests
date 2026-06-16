@@ -1,4 +1,3 @@
-````markdown id="jest-config-01"
 # Jest Configuration File (jest.config.js)
 
 This file configures the Jest testing framework for the Node.js application.

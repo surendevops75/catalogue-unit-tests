@@ -1,4 +1,3 @@
-````markdown id="catalogue-server-js-01"
 # Catalogue Service (server.js)
 
 This file is the core backend application of the Roboshop Catalogue service.

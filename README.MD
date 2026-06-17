@@ -159,6 +159,55 @@ Capabilities:
 
 ---
 
+## 📊 Code Quality
+
+### SonarQube Integration
+
+Configuration:
+
+```text
+sonar-project.properties
+```
+
+Capabilities:
+
+- Code quality analysis
+- Security scanning
+- Technical debt identification
+- Coverage reporting
+
+---
+
+### SonarQube Quality Metrics
+
+#### Vulnerabilities
+Security weaknesses in the code that could be exploited by attackers, such as SQL injection, command injection, or hard-coded secrets.
+
+#### Bugs
+Coding defects that may cause incorrect behavior, application crashes, or unexpected runtime results.
+
+#### Code Smells
+Maintainability issues that do not impact functionality directly but make the code harder to read, understand, test, and maintain.
+
+#### Security Rating
+A rating from A to E that reflects the overall security posture of the codebase based on detected vulnerabilities.
+
+#### Maintainability Rating
+A rating from A to E that indicates how maintainable the code is, based on code smells and estimated technical debt.
+
+#### Code Coverage
+The percentage of source code executed during automated tests, indicating how thoroughly the application is tested.
+
+#### Duplications
+The percentage of duplicated code blocks within the codebase.
+
+#### Technical Debt
+The estimated effort required to fix maintainability issues and improve code quality.
+
+#### Quality Gate
+A set of predefined quality conditions that the project must satisfy before progressing through the CI/CD pipeline.
+---
+
 ## 🐳 Docker Support
 
 ### Dockerfile
